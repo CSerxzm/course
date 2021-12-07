@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2021-11-25 13:30:02
+Date: 2021-12-07 23:08:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,6 @@ CREATE TABLE `t_admin` (
 -- Records of t_admin
 -- ----------------------------
 INSERT INTO `t_admin` VALUES ('1', 'admin', '123456', '255');
-INSERT INTO `t_admin` VALUES ('2', 'azure99', '123456', '96');
 
 -- ----------------------------
 -- Table structure for t_class
@@ -80,7 +79,7 @@ CREATE TABLE `t_course` (
 -- ----------------------------
 -- Records of t_course
 -- ----------------------------
-INSERT INTO `t_course` VALUES ('1', '1', 'C语言程序设计', '2017', '1-1-2', '信工楼107', '5', '18', '50', null, null);
+INSERT INTO `t_course` VALUES ('1', '1', 'C语言程序设计', '2017', '1-2-2', '信工楼107', '5', '18', '50', null, null);
 INSERT INTO `t_course` VALUES ('2', '1', 'Java程序设计', '2017', '1-3-2', '信工楼106', '4', '1', '30', null, null);
 INSERT INTO `t_course` VALUES ('3', '1', '数据库实用技术', '2017', '2-3-2', 'C区202', '2', '1', '50', null, null);
 INSERT INTO `t_course` VALUES ('4', '1', 'ASP.Net开发', '2017', '5-5-3', 'E区315', '2', '1', '1', null, null);
@@ -158,7 +157,7 @@ CREATE TABLE `t_student` (
 -- ----------------------------
 -- Records of t_student
 -- ----------------------------
-INSERT INTO `t_student` VALUES ('1', '1', '811010001', '小李', '123456', '15585858585', '715035273@qq.com', 'home2', '1998-08-18 16:00:00', '0', '2021-11-02 13:45:30');
+INSERT INTO `t_student` VALUES ('1', '1', '811010001', '小李', '123456', '15284875389', '3052720966@qq.com', 'home2', '2021-12-07 16:00:00', '0', '2021-12-07 15:06:49');
 INSERT INTO `t_student` VALUES ('2', '1', '811010002', '小宋', '123456', null, null, null, null, '1', null);
 INSERT INTO `t_student` VALUES ('3', '1', '811010003', '李同学1', '123456', null, null, null, null, '0', null);
 INSERT INTO `t_student` VALUES ('4', '1', '811010004', '李同学2', '123456', null, null, null, null, '0', null);
