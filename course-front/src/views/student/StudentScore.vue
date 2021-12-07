@@ -31,12 +31,12 @@ export default {
   name: "StudentScore",
   data() {
     return {
-      tableData: []
+      tableData: [],
     };
   },
   methods: {
     getList() {
-      api.list().then(res => {
+      api.list().then((res) => {
         this.tableData = this.scoreFilter(res);
       });
     },
@@ -53,11 +53,11 @@ export default {
         }
       }
       return filtered;
-    }
+    },
   },
   created() {
     this.getList();
-  }
+  },
 };
 </script>
 

@@ -29,14 +29,10 @@
             />
           </el-col>
           <el-col :span="3">
-            <el-button @click="query"  type="primary"
-              >搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -59,12 +55,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -76,7 +72,10 @@
             <el-input v-model="entityForm.name"></el-input>
           </el-form-item>
           <el-form-item label="所属学院">
-            <el-select placeholder="请选择学院" v-model="entityForm.departmentId">
+            <el-select
+              placeholder="请选择学院"
+              v-model="entityForm.departmentId"
+            >
               <el-option
                 :key="index"
                 :label="item.name"
@@ -105,7 +104,7 @@ export default {
     return {
       queryForm: {
         departmentName: "",
-        name: ""
+        name: "",
       },
       entityForm: {},
       tableData: [],
@@ -113,14 +112,14 @@ export default {
       pageCount: 1,
       pageIndex: 1,
       editing: false,
-      departments: []
+      departments: [],
     };
   },
   methods: {
     query() {
       api
         .getPageCount(this.queryForm.departmentName, this.queryForm.name)
-        .then(res => {
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -129,7 +128,7 @@ export default {
     getPage(pageIndex) {
       api
         .getPage(pageIndex, this.queryForm.departmentName, this.queryForm.name)
-        .then(res => {
+        .then((res) => {
           this.tableData = res;
         });
     },
@@ -137,12 +136,12 @@ export default {
       this.entityForm = {
         id: -1,
         name: "",
-        departmentId: ""
+        departmentId: "",
       };
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         this.entityForm = res;
         this.editing = true;
       });
@@ -170,15 +169,15 @@ export default {
       });
     },
     getDepartments() {
-      departmentApi.listName().then(res => {
+      departmentApi.listName().then((res) => {
         this.departments = res;
       });
-    }
+    },
   },
   created() {
     this.query();
     this.getDepartments();
-  }
+  },
 };
 </script>
 

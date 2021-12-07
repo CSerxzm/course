@@ -29,19 +29,19 @@ export default {
   name: "StudentExam",
   data() {
     return {
-      tableData: []
+      tableData: [],
     };
   },
   methods: {
     getList() {
-      api.list().then(res => {
+      api.list().then((res) => {
         this.tableData = res;
       });
-    }
+    },
   },
   created() {
     this.getList();
-  }
+  },
 };
 </script>
 

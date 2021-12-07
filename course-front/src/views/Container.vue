@@ -22,7 +22,7 @@ export default {
   name: "Container",
   components: {
     HeadBar,
-    SideBar
+    SideBar,
   },
   methods: {
     redirectHome(userType) {
@@ -33,10 +33,10 @@ export default {
       } else if (userType === UserType.admin) {
         this.$router.push({ name: "admin-home" });
       }
-    }
+    },
   },
   created() {
-    getLoginStatus().then(res => {
+    getLoginStatus().then((res) => {
       this.$store.commit("login", res);
       if (!res.loggedIn) {
         this.$router.push({ name: "login" });
@@ -44,7 +44,7 @@ export default {
         this.redirectHome(res.userType);
       }
     });
-  }
+  },
 };
 </script>
 

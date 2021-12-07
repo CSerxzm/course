@@ -138,13 +138,13 @@
             <el-input type="number" v-model="entityForm.maxSize"></el-input>
           </el-form-item>
           <!--<el-form-item label="考试时间">-->
-            <!--<el-date-picker-->
-              <!--format="yyyy-MM-dd HH:mm"-->
-              <!--type="datetime"-->
-              <!--v-model="entityForm.examDate"-->
-              <!--value-format="yyyy-MM-dd HH:mm"-->
-            <!--&gt;-->
-            <!--</el-date-picker>-->
+          <!--<el-date-picker-->
+          <!--format="yyyy-MM-dd HH:mm"-->
+          <!--type="datetime"-->
+          <!--v-model="entityForm.examDate"-->
+          <!--value-format="yyyy-MM-dd HH:mm"-->
+          <!--&gt;-->
+          <!--</el-date-picker>-->
           <!--</el-form-item>-->
           <el-form-item label="考试地点">
             <el-input v-model="entityForm.examLocation"></el-input>
@@ -170,7 +170,7 @@ export default {
       queryForm: {
         departmentName: "",
         teacherName: "",
-        name: ""
+        name: "",
       },
       entityForm: {},
       tableData: [],
@@ -189,7 +189,7 @@ export default {
         "星期四",
         "星期五",
         "星期六",
-        "星期日"
+        "星期日",
       ],
       times: [
         "第一节",
@@ -200,8 +200,8 @@ export default {
         "第六节",
         "第七节",
         "第八节",
-        "第九节"
-      ]
+        "第九节",
+      ],
     };
   },
   methods: {
@@ -212,7 +212,7 @@ export default {
           this.queryForm.teacherName,
           this.queryForm.name
         )
-        .then(res => {
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -226,7 +226,7 @@ export default {
           this.queryForm.teacherName,
           this.queryForm.name
         )
-        .then(res => {
+        .then((res) => {
           this.tableData = res;
         });
     },
@@ -241,7 +241,7 @@ export default {
         credit: 2,
         maxSize: 50,
         examDate: null,
-        examLocation: null
+        examLocation: null,
       };
       this.courseDay = 1;
       this.courseTime = 1;
@@ -249,7 +249,7 @@ export default {
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         let split = res.time.split("-");
         this.courseDay = parseInt(split[0]) - 1;
         this.courseTime = parseInt(split[1]) - 1;
@@ -285,15 +285,15 @@ export default {
       });
     },
     getTeachers() {
-      teacherApi.listName().then(res => {
+      teacherApi.listName().then((res) => {
         this.teachers = res;
       });
-    }
+    },
   },
   created() {
     this.query();
     this.getTeachers();
-  }
+  },
 };
 </script>
 

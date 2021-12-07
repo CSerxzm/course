@@ -26,13 +26,10 @@
             />
           </el-col>
           <el-col :span="3">
-            <el-button @click="query" type="primary">搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -57,12 +54,12 @@
 
       <el-row justify="center" type="flex">
         <el-pagination
-            :current-page.sync="pageIndex"
-            :page-size="pageSize"
-            :total="pageSize * pageCount"
-            @current-change="getPage"
-            background
-            layout="prev, pager, next"
+          :current-page.sync="pageIndex"
+          :page-size="pageSize"
+          :total="pageSize * pageCount"
+          @current-change="getPage"
+          background
+          layout="prev, pager, next"
         >
         </el-pagination>
       </el-row>
@@ -104,21 +101,21 @@ export default {
     return {
       queryForm: {
         courseName: "",
-        studentName: ""
+        studentName: "",
       },
       entityForm: {},
       tableData: [],
       pageSize: api.pageSize,
       pageCount: 1,
       pageIndex: 1,
-      editing: false
+      editing: false,
     };
   },
   methods: {
     query() {
       api
         .getPageCount(this.queryForm.courseName, this.queryForm.studentName)
-        .then(res => {
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -131,12 +128,12 @@ export default {
           this.queryForm.courseName,
           this.queryForm.studentName
         )
-        .then(res => {
+        .then((res) => {
           this.tableData = res;
         });
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         this.entityForm = res;
         this.editing = true;
       });
@@ -147,11 +144,11 @@ export default {
         this.getPage(this.pageIndex);
         this.editing = false;
       });
-    }
+    },
   },
   created() {
     this.query();
-  }
+  },
 };
 </script>
 

@@ -26,13 +26,13 @@
           <el-table-column align="center" label="操作" width="200px">
             <template slot-scope="scope">
               <el-button @click="edit(scope.row.id)" size="mini" type="success"
-              >编辑
+                >编辑
               </el-button>
               <el-button
-                  @click="deleteItem(scope.row.id)"
-                  size="mini"
-                  type="danger"
-              >删除
+                @click="deleteItem(scope.row.id)"
+                size="mini"
+                type="danger"
+                >删除
               </el-button>
             </template>
           </el-table-column>
@@ -49,19 +49,19 @@
           <el-form-item label="上课时间">
             <el-select v-model="courseDay">
               <el-option
-                  :key="index"
-                  :label="item"
-                  :value="index"
-                  v-for="(item, index) in days"
+                :key="index"
+                :label="item"
+                :value="index"
+                v-for="(item, index) in days"
               >
               </el-option>
             </el-select>
             <el-select v-model="courseTime">
               <el-option
-                  :key="index"
-                  :label="item"
-                  :value="index"
-                  v-for="(item, index) in times"
+                :key="index"
+                :label="item"
+                :value="index"
+                v-for="(item, index) in times"
               >
               </el-option>
             </el-select>
@@ -110,7 +110,7 @@ export default {
         "星期四",
         "星期五",
         "星期六",
-        "星期日"
+        "星期日",
       ],
       times: [
         "第一节",
@@ -121,13 +121,13 @@ export default {
         "第六节",
         "第七节",
         "第八节",
-        "第九节"
-      ]
+        "第九节",
+      ],
     };
   },
   methods: {
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         let split = res.time.split("-");
         this.courseDay = parseInt(split[0]) - 1;
         this.courseTime = parseInt(split[1]) - 1;
@@ -153,7 +153,7 @@ export default {
         credit: 2,
         maxSize: 50,
         examDate: null,
-        examLocation: null
+        examLocation: null,
       };
       this.courseDay = 1;
       this.courseTime = 1;
@@ -181,14 +181,14 @@ export default {
       this.editing = false;
     },
     getList() {
-      api.list().then(res => {
+      api.list().then((res) => {
         this.tableData = res;
       });
-    }
+    },
   },
   created() {
     this.getList();
-  }
+  },
 };
 </script>
 

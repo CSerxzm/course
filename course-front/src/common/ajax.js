@@ -91,41 +91,41 @@ const dataHandle = response => {
   return response;
 };
 
-const innerGet = function() {
+const innerGet = function () {
   addRequestCount();
   return axiosInstance.get.apply(this, arguments).then(dataHandle);
 };
 
-const innerPost = function() {
+const innerPost = function () {
   addRequestCount();
   return axiosInstance.post.apply(this, arguments).then(dataHandle);
 };
 
-const innerDelete = function() {
+const innerDelete = function () {
   addRequestCount();
   return axiosInstance.delete.apply(this, arguments).then(dataHandle);
 };
 
-const innerPut = function() {
+const innerPut = function () {
   addRequestCount();
   return axiosInstance.put.apply(this, arguments).then(dataHandle);
 };
 
-export const pureGet = function(url) {
+export const pureGet = function (url) {
   return innerGet(url);
 };
 
-export const pureDelete = function(url) {
+export const pureDelete = function (url) {
   return innerDelete(url);
 };
 
-export const get = function(url, params) {
+export const get = function (url, params) {
   return innerGet(url, {
     params: params
   });
 };
 
-export const post = function(url, data) {
+export const post = function (url, data) {
   return innerPost(url, data, {
     headers: {
       "Content-Type": "application/json"
@@ -133,13 +133,13 @@ export const post = function(url, data) {
   });
 };
 
-export const del = function(url, params) {
+export const del = function (url, params) {
   return innerDelete(url, {
     params: params
   });
 };
 
-export const put = function(url, data) {
+export const put = function (url, data) {
   return innerPut(url, data, {
     headers: {
       "Content-Type": "application/json"

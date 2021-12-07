@@ -41,12 +41,12 @@ export default {
   name: "StudentCourse",
   data() {
     return {
-      tableData: []
+      tableData: [],
     };
   },
   methods: {
     getList() {
-      api.list().then(res => {
+      api.list().then((res) => {
         this.tableData = res;
       });
     },
@@ -55,11 +55,11 @@ export default {
         this.$message.success("退选成功!");
         this.getList();
       });
-    }
+    },
   },
   created() {
     this.getList();
-  }
+  },
 };
 </script>
 

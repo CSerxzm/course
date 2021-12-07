@@ -63,13 +63,13 @@ export default {
         address: "",
         birthday: "",
         sex: "",
-        password: null
-      }
+        password: null,
+      },
     };
   },
   methods: {
     get() {
-      api.get().then(res => {
+      api.get().then((res) => {
         this.entityForm = res;
       });
     },
@@ -77,11 +77,11 @@ export default {
       api.update(this.entityForm).then(() => {
         this.$message.success("更新信息成功!");
       });
-    }
+    },
   },
   created() {
     this.get();
-  }
+  },
 };
 </script>
 

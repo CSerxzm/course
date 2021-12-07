@@ -22,13 +22,10 @@
             />
           </el-col>
           <el-col :span="3">
-            <el-button @click="query"  type="primary"
-              >搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -52,12 +49,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -86,38 +83,38 @@ export default {
   data() {
     return {
       queryForm: {
-        name: ""
+        name: "",
       },
       entityForm: {},
       tableData: [],
       pageSize: api.pageSize,
       pageCount: 1,
       pageIndex: 1,
-      editing: false
+      editing: false,
     };
   },
   methods: {
     query() {
-      api.getPageCount(this.queryForm.name).then(res => {
+      api.getPageCount(this.queryForm.name).then((res) => {
         this.pageCount = res;
         this.pageIndex = 1;
         this.getPage(1);
       });
     },
     getPage(pageIndex) {
-      api.getPage(pageIndex, this.queryForm.name).then(res => {
+      api.getPage(pageIndex, this.queryForm.name).then((res) => {
         this.tableData = res;
       });
     },
     create() {
       this.entityForm = {
         id: -1,
-        name: ""
+        name: "",
       };
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         this.entityForm = res;
         this.editing = true;
       });
@@ -143,11 +140,11 @@ export default {
         this.$message.success("删除成功");
         this.getPage(this.pageIndex);
       });
-    }
+    },
   },
   created() {
     this.query();
-  }
+  },
 };
 </script>
 

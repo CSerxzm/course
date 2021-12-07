@@ -46,41 +46,41 @@
 import { login } from "../api/user";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       formData: {
         username: "",
         password: "",
-        userType: "1"
+        userType: "1",
       },
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" }
+          { required: true, message: "请输入用户名", trigger: "blur" },
         ],
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
         userType: [
-          { required: true, message: "请选择用户类型", trigger: "blur" }
-        ]
-      }
+          { required: true, message: "请选择用户类型", trigger: "blur" },
+        ],
+      },
     };
   },
   methods: {
     submit() {
-      this.$refs.form.validate(valid => {
+      this.$refs.form.validate((valid) => {
         if (valid) {
           login(
             this.formData.username,
             this.formData.password,
             this.formData.userType
-          ).then(res => {
+          ).then((res) => {
             this.$message.success("登录成功: " + res.username);
             this.$store.commit("login", res);
             this.$router.push({ name: "container" });
           });
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -109,7 +109,7 @@ export default {
   width: 350px;
   margin: -190px 0 0 -170px;
   border-radius: 5px;
-  background:#677998;
+  background: #677998;
 }
 
 .form-content {
@@ -124,6 +124,4 @@ export default {
   width: 100%;
   height: 36px;
 }
-
-
 </style>

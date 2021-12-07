@@ -31,8 +31,6 @@
         </el-row>
       </div>
 
-
-
       <div class="table">
         <el-table :data="tableData" stripe>
           <el-table-column label="课程Id" prop="courseId" />
@@ -59,12 +57,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -82,19 +80,19 @@ export default {
     return {
       queryForm: {
         courseName: "",
-        teacherName: ""
+        teacherName: "",
       },
       tableData: [],
       pageSize: api.pageSize,
       pageCount: 1,
-      pageIndex: 1
+      pageIndex: 1,
     };
   },
   methods: {
     query() {
       api
         .getPageCount(this.queryForm.courseName, this.queryForm.teacherName)
-        .then(res => {
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -107,7 +105,7 @@ export default {
           this.queryForm.courseName,
           this.queryForm.teacherName
         )
-        .then(res => {
+        .then((res) => {
           this.tableData = res;
         });
     },
@@ -116,11 +114,11 @@ export default {
         this.$message.success("选修成功!");
         this.getPage(this.pageIndex);
       });
-    }
+    },
   },
   created() {
     this.query();
-  }
+  },
 };
 </script>
 

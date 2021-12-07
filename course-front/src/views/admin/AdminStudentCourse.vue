@@ -24,13 +24,10 @@
           </el-col>
 
           <el-col :span="3">
-            <el-button @click="query"  type="primary"
-              >搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -57,12 +54,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -137,30 +134,21 @@ export default {
       pageIndex: 1,
       editing: false,
       courses: [],
-      students: []
+      students: [],
     };
   },
   methods: {
     query() {
-      api
-        .getPageCount(
-          this.queryForm.courseName,
-        )
-        .then(res => {
-          this.pageCount = res;
-          this.pageIndex = 1;
-          this.getPage(1);
-        });
+      api.getPageCount(this.queryForm.courseName).then((res) => {
+        this.pageCount = res;
+        this.pageIndex = 1;
+        this.getPage(1);
+      });
     },
     getPage(pageIndex) {
-      api
-        .getPage(
-          pageIndex,
-          this.queryForm.courseName,
-        )
-        .then(res => {
-          this.tableData = res;
-        });
+      api.getPage(pageIndex, this.queryForm.courseName).then((res) => {
+        this.tableData = res;
+      });
     },
     create() {
       this.entityForm = {
@@ -169,12 +157,12 @@ export default {
         courseId: null,
         dailyScore: null,
         examScore: null,
-        score: null
+        score: null,
       };
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         this.entityForm = res;
         this.editing = true;
       });
@@ -202,27 +190,27 @@ export default {
       });
     },
     getCoursesAndStudents() {
-      CourseApi.listName().then(res => {
+      CourseApi.listName().then((res) => {
         this.courses = res;
       });
-      StudentApi.listName().then(res => {
+      StudentApi.listName().then((res) => {
         this.students = res;
       });
     },
     getSelectAndGradeStatus() {
-      OptionApi.getAllowStudentSelect().then(res => {
+      OptionApi.getAllowStudentSelect().then((res) => {
         this.optionForm.allowSelect = res;
       });
-      OptionApi.getAllowTeacherGrade().then(res => {
+      OptionApi.getAllowTeacherGrade().then((res) => {
         this.optionForm.allowGrade = res;
       });
-    }
+    },
   },
   created() {
     this.query();
     this.getCoursesAndStudents();
     this.getSelectAndGradeStatus();
-  }
+  },
 };
 </script>
 

@@ -36,14 +36,10 @@
             />
           </el-col>
           <el-col :span="3">
-            <el-button @click="query"  type="primary"
-              >搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -69,12 +65,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -146,7 +142,7 @@ export default {
       queryForm: {
         majorName: "",
         className: "",
-        name: ""
+        name: "",
       },
       entityForm: {},
       tableData: [],
@@ -154,7 +150,7 @@ export default {
       pageCount: 1,
       pageIndex: 1,
       editing: false,
-      classes: []
+      classes: [],
     };
   },
   methods: {
@@ -165,7 +161,7 @@ export default {
           this.queryForm.className,
           this.queryForm.name
         )
-        .then(res => {
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -179,7 +175,7 @@ export default {
           this.queryForm.className,
           this.queryForm.name
         )
-        .then(res => {
+        .then((res) => {
           for (let i = 0; i < res.length; i++) {
             res[i].sex = res[i].sex === 1 ? "男" : "女";
           }
@@ -195,12 +191,12 @@ export default {
         password: "",
         email: null,
         birthday: null,
-        sex: 0
+        sex: 0,
       };
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         this.entityForm = res;
         this.editing = true;
       });
@@ -228,15 +224,15 @@ export default {
       });
     },
     getClasses() {
-      classApi.listName().then(res => {
+      classApi.listName().then((res) => {
         this.classes = res;
       });
-    }
+    },
   },
   created() {
     this.query();
     this.getClasses();
-  }
+  },
 };
 </script>
 

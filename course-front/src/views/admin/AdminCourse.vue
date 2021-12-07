@@ -29,14 +29,10 @@
             />
           </el-col>
           <el-col :span="2">
-            <el-button @click="query"  type="primary"
-              >搜索
-            </el-button>
+            <el-button @click="query" type="primary">搜索 </el-button>
           </el-col>
         </el-row>
       </div>
-
-
 
       <div class="table">
         <el-table :data="tableData" stripe>
@@ -70,12 +66,12 @@
         </el-table>
         <el-row justify="center" type="flex">
           <el-pagination
-              :current-page.sync="pageIndex"
-              :page-size="pageSize"
-              :total="pageSize * pageCount"
-              @current-change="getPage"
-              background
-              layout="prev, pager, next"
+            :current-page.sync="pageIndex"
+            :page-size="pageSize"
+            :total="pageSize * pageCount"
+            @current-change="getPage"
+            background
+            layout="prev, pager, next"
           >
           </el-pagination>
         </el-row>
@@ -155,7 +151,7 @@ export default {
     return {
       queryForm: {
         department: "",
-        name: ""
+        name: "",
       },
       entityForm: {},
       tableData: [],
@@ -174,7 +170,7 @@ export default {
         "星期四",
         "星期五",
         "星期六",
-        "星期日"
+        "星期日",
       ],
       times: [
         "第一节",
@@ -185,18 +181,15 @@ export default {
         "第六节",
         "第七节",
         "第八节",
-        "第九节"
-      ]
+        "第九节",
+      ],
     };
   },
   methods: {
     query() {
       api
-        .getPageCount(
-          this.queryForm.department,
-          this.queryForm.name
-        )
-        .then(res => {
+        .getPageCount(this.queryForm.department, this.queryForm.name)
+        .then((res) => {
           this.pageCount = res;
           this.pageIndex = 1;
           this.getPage(1);
@@ -204,12 +197,8 @@ export default {
     },
     getPage(pageIndex) {
       api
-        .getPage(
-          pageIndex,
-          this.queryForm.department,
-          this.queryForm.name
-        )
-        .then(res => {
+        .getPage(pageIndex, this.queryForm.department, this.queryForm.name)
+        .then((res) => {
           this.tableData = res;
         });
     },
@@ -224,7 +213,7 @@ export default {
         credit: 2,
         maxSize: 50,
         examDate: null,
-        examLocation: null
+        examLocation: null,
       };
       this.courseDay = 1;
       this.courseTime = 1;
@@ -232,7 +221,7 @@ export default {
       this.editing = true;
     },
     edit(id) {
-      api.get(id).then(res => {
+      api.get(id).then((res) => {
         let split = res.time.split("-");
         this.courseDay = parseInt(split[0]) - 1;
         this.courseTime = parseInt(split[1]) - 1;
@@ -268,15 +257,15 @@ export default {
       });
     },
     getTeachers() {
-      teacherApi.listName().then(res => {
+      teacherApi.listName().then((res) => {
         this.teachers = res;
       });
-    }
+    },
   },
   created() {
     this.query();
     this.getTeachers();
-  }
+  },
 };
 </script>
 

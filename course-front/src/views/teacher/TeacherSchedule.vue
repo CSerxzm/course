@@ -22,10 +22,10 @@ export default {
   name: "TeacherSchedule",
   components: { TimeTable },
   created() {
-    api.get().then(res => {
+    api.get().then((res) => {
       this.$refs.timeTable.updateData(res);
     });
-  }
+  },
 };
 </script>
 
