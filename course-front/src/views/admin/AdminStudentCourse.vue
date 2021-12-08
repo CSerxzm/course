@@ -118,7 +118,6 @@
 import * as api from "../../api/admin/studentCourse";
 import * as CourseApi from "../../api/admin/course";
 import * as StudentApi from "../../api/admin/student";
-import * as OptionApi from "../../api/option";
 
 export default {
   name: "AdminStudentCourse",
@@ -191,25 +190,17 @@ export default {
     },
     getCoursesAndStudents() {
       CourseApi.listName().then((res) => {
+        //console.log(res);
         this.courses = res;
       });
       StudentApi.listName().then((res) => {
         this.students = res;
       });
     },
-    getSelectAndGradeStatus() {
-      OptionApi.getAllowStudentSelect().then((res) => {
-        this.optionForm.allowSelect = res;
-      });
-      OptionApi.getAllowTeacherGrade().then((res) => {
-        this.optionForm.allowGrade = res;
-      });
-    },
   },
   created() {
     this.query();
     this.getCoursesAndStudents();
-    this.getSelectAndGradeStatus();
   },
 };
 </script>

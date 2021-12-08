@@ -53,6 +53,7 @@ export default {
         password: "",
         userType: "1",
       },
+      checked: true,
       rules: {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },

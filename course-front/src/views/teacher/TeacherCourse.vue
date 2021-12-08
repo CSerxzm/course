@@ -103,6 +103,7 @@ export default {
       courseDay: "",
       courseTime: "",
       courseLength: 0,
+      editing: false,
       days: [
         "星期一",
         "星期二",

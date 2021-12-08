@@ -12,8 +12,5 @@ export default {
       tableData: [],
     };
   },
-  created() {
-    this.query();
-  },
 };
 </script>

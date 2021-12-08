@@ -37,7 +37,7 @@ const routes = [
       {
         path: "/student/course/select",
         name: "student-course-select",
-        component: StudentCourseSelect
+        component: StudentSelect
       },
       {
         path: "/student/course",
@@ -47,7 +47,7 @@ const routes = [
       {
         path: "/student/timetable",
         name: "student-timetable",
-        component: StudentTimeTable
+        component: StudentSchedule
       },
       {
         path: "/student/exam",
@@ -70,6 +70,11 @@ const routes = [
         component: Home
       },
       {
+        path: "/teacher/course/manager",
+        name: "teacher-course",
+        component: TeacherCourseManager
+      },
+      {
         path: "/teacher/course",
         name: "teacher-course",
         component: TeacherCourse
@@ -77,7 +82,7 @@ const routes = [
       {
         path: "/teacher/timetable",
         name: "teacher-timetable",
-        component: TeacherTimetable
+        component: TeacherSchedule
       },
       {
         path: "/teacher/grade",
@@ -123,11 +128,6 @@ const routes = [
         path: "/admin/student/course",
         name: "admin-student-course",
         component: AdminStudentCourse
-      },
-      {
-        path: "/admin/admin",
-        name: "admin-admin",
-        component: AdminAdmin
       }
     ]
   },
@@ -145,4 +145,3 @@ const router = new VueRouter({
 });
 
 export default router;
-
