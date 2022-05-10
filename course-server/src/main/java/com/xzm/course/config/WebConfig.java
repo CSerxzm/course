@@ -1,6 +1,7 @@
 package com.xzm.course.config;
 
 import com.xzm.course.config.themis.ThemisInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -8,11 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    private final ThemisInterceptor themisInterceptor;
 
-    public WebConfig(ThemisInterceptor themisInterceptor) {
-        this.themisInterceptor = themisInterceptor;
-    }
+    @Autowired
+    private ThemisInterceptor themisInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

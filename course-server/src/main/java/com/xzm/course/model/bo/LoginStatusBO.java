@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Data
 public class LoginStatusBO implements Serializable {
+
     private Boolean loggedIn = false;
     private Integer userId;
     private String username;
@@ -22,4 +23,5 @@ public class LoginStatusBO implements Serializable {
         loginStatus.permission = authInfo.getPermission();
         return loginStatus;
     }
+
 }

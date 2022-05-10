@@ -8,6 +8,7 @@ import java.util.TimeZone;
 
 @Component
 public class TimeZoneConfig {
+
     @Value("${spring.jackson.time-zone}")
     private String timeZone;
 
@@ -15,4 +16,5 @@ public class TimeZoneConfig {
     public void setTimeZone() {
         TimeZone.setDefault(TimeZone.getTimeZone(timeZone));
     }
+
 }

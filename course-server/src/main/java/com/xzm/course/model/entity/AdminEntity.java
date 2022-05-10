@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @TableName("t_admin")
 @Data
 public class AdminEntity {
+
     public static final String ID = "admin_id";
     public static final String USERNAME = "admin_username";
     public static final String PASSWORD = "admin_password";

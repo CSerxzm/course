@@ -6,12 +6,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/course?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
-    password: password
+    password: 123456
   redis:
     host: localhost
     port: 6379
     username: root
-    password: password
+    password: 123456
   jackson:
     time-zone: Asia/Shanghai
 

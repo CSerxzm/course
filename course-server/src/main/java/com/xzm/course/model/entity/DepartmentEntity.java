@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @TableName("t_department")
 @Data
 public class DepartmentEntity {
+
     public static final String ID = "department_id";
     public static final String NAME = "department_name";
 

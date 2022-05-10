@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 @TableName("t_student_course")
 @Data
 public class StudentCourseEntity {
+
     public static final String ID = "sc_id";
     public static final String STUDENT_ID = "sc_student_id";
     public static final String COURSE_ID = "sc_course_id";

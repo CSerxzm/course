@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.xzm.course.dao.mapper")
 @Configuration
 public class MybatisPlusConfig {
+
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
     }
+
 }

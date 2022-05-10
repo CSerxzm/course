@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpSession;
 
 public class BaseService {
+
     @Autowired
     private HttpSession session;
+
     @Autowired
     private LoginStatusManager loginStatusManager;
 

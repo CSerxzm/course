@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class SdnuNewsBO {
+
     private String title;
     private String url;
     private String date;
@@ -13,4 +14,5 @@ public class SdnuNewsBO {
         this.date = date;
         this.url = url;
     }
+
 }

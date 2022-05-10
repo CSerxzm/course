@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Admin {
+
     // 无权限
     int NO = 0;
     // 系管理
@@ -30,4 +31,5 @@ public @interface Admin {
     int ALL = 255;
 
     int value() default 0;
+
 }

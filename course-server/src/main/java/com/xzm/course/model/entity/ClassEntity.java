@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @TableName("t_class")
 @Data
 public class ClassEntity {
+
     public static final String ID = "class_id";
     public static final String MAJOR_ID = "class_major_id";
     public static final String GRADE = "class_grade";

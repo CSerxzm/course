@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class ResultFailedCodeAspect {
 
-
     @Pointcut("execution(public com.xzm.course.model.vo.response.ResultVO " +
             "com.xzm.course.controller..*.*(..))")
     public void controllerResult() {
@@ -23,7 +22,8 @@ public class ResultFailedCodeAspect {
 
     @AfterReturning(value = "controllerResult()", returning = "result")
     public Object afterReturning(ResultVO result) {
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes requestAttributes
+                = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (requestAttributes == null) {
             return result;
         }
@@ -31,7 +31,6 @@ public class ResultFailedCodeAspect {
         if (response == null) {
             return result;
         }
-
         if (result.getCode() == ResultVO.FAIL) {
             response.setStatus(HttpStatusCode.NOT_ACCEPTABLE);
         }

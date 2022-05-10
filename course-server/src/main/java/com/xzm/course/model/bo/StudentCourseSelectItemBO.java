@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class StudentCourseSelectItemBO {
+
     private Integer courseId;
     private String courseName;
     private String teacherName;
@@ -11,4 +12,5 @@ public class StudentCourseSelectItemBO {
     private String time;
     private Integer selectedCount;
     private Integer maxSize;
+
 }

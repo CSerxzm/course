@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2021-12-07 23:08:22
+Date: 2022-05-10 20:03:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `t_admin` (
   `admin_privilege` int(11) NOT NULL,
   PRIMARY KEY (`admin_id`),
   UNIQUE KEY `idx_admin_username` (`admin_username`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_admin
@@ -157,7 +157,7 @@ CREATE TABLE `t_student` (
 -- ----------------------------
 -- Records of t_student
 -- ----------------------------
-INSERT INTO `t_student` VALUES ('1', '1', '811010001', '小李', '123456', '15284875389', '3052720966@qq.com', 'home2', '2021-12-07 16:00:00', '0', '2021-12-07 15:06:49');
+INSERT INTO `t_student` VALUES ('1', '1', '811010001', '小李', '123456', '15284875389', '3052720966@qq.com', 'home2', '2021-12-07 16:00:00', '0', '2022-05-10 11:59:24');
 INSERT INTO `t_student` VALUES ('2', '1', '811010002', '小宋', '123456', null, null, null, null, '1', null);
 INSERT INTO `t_student` VALUES ('3', '1', '811010003', '李同学1', '123456', null, null, null, null, '0', null);
 INSERT INTO `t_student` VALUES ('4', '1', '811010004', '李同学2', '123456', null, null, null, null, '0', null);
@@ -198,7 +198,7 @@ CREATE TABLE `t_student_course` (
 -- ----------------------------
 -- Records of t_student_course
 -- ----------------------------
-INSERT INTO `t_student_course` VALUES ('2', '2', '1', null, null, null);
+INSERT INTO `t_student_course` VALUES ('2', '2', '1', '23', '23', '23');
 INSERT INTO `t_student_course` VALUES ('3', '3', '1', null, null, null);
 INSERT INTO `t_student_course` VALUES ('4', '4', '1', null, null, null);
 INSERT INTO `t_student_course` VALUES ('5', '5', '1', null, null, null);

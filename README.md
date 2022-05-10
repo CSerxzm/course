@@ -1,4 +1,4 @@
-# 课程管理系统，可做相关毕设。
+# 课程管理系统。
 ## course-front
 * 前端代码，为Vue编写。
 * UI组件使用ElementUI。
@@ -65,3 +65,5 @@ mybatis-plus:
 ![7.png](./images/7.png)
 
 ![8.png](./images/8.png)
+
+![9.png](./images/9.png)

@@ -14,6 +14,7 @@ import java.util.Date;
 @TableName("t_course")
 @Data
 public class CourseEntity {
+
     public static final String ID = "course_id";
     public static final String TEACHER_ID = "course_teacher_id";
     public static final String NAME = "course_name";

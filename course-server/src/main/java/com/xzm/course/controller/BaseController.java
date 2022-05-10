@@ -3,6 +3,7 @@ package com.xzm.course.controller;
 import com.xzm.course.model.vo.response.ResultVO;
 
 public class BaseController {
+
     protected ResultVO result(Object data) {
         return new ResultVO(ResultVO.SUCCESS, "success", data);
     }

@@ -17,8 +17,10 @@ import java.lang.reflect.Method;
 
 @Component
 public class ThemisInterceptor implements HandlerInterceptor {
+
     private final PermissionScanner scanner;
     private final LoginStatusManager loginStatusManager;
+    //装换成json对象
     private final ObjectMapper objectMapper;
 
     public ThemisInterceptor(PermissionScanner scanner, LoginStatusManager loginStatusManager, ObjectMapper objectMapper) {
@@ -29,25 +31,15 @@ public class ThemisInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        try {
-            // 展示用, 请移除本段代码
-            Thread.sleep(100);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
-
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
-
         Permission permission = scanner.scan(method);
         if (!permission.getNeedLogin() || permission.getUserType().equals(0)) {
             return true;
         }
-
         LoginStatusBO loginStatus = loginStatusManager.getLoginStatus(request.getSession());
         if (!loginStatus.getLoggedIn()) {
             noLogin(response);
@@ -86,7 +78,6 @@ public class ThemisInterceptor implements HandlerInterceptor {
     private void sendResult(ResultVO result, HttpServletResponse response) {
         response.setCharacterEncoding("UTF8");
         response.setContentType("application/json");
-
         try (Writer writer = response.getWriter()) {
             writer.write(objectMapper.writeValueAsString(result));
             writer.flush();

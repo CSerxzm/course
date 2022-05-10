@@ -2,9 +2,12 @@ package com.xzm.course.config.themis;
 
 import com.xzm.course.model.constant.UserType;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
 public class Permission {
+
     private Integer userType = UserType.NO;
     private Integer permission = 0;
     private Boolean needLogin = true;

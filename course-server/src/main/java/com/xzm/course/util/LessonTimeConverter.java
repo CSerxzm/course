@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LessonTimeConverter {
+
     private static final String COURSE_TIME_FORMAT = "星期%s 第%d~%d节";
     private static final String[] CHINESE_WEEK_NUMBER = new String[]
             {"零", "一", "二", "三", "四", "五", "六", "日"};

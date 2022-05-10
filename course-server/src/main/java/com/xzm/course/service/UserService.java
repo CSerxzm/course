@@ -7,6 +7,7 @@ import com.xzm.course.model.bo.LoginStatusBO;
 import com.xzm.course.model.constant.UserType;
 import com.xzm.course.model.vo.response.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -24,6 +25,7 @@ public class UserService extends BaseService {
     private LoginStatusManager loginStatusManager;
 
     public ResultVO login(String username, String password, Integer userType) {
+        //查询出用户信息
         AuthInfoBO authInfo = userManager.getAuthInfoByUsername(username, userType);
         if (authInfo == null) {
             return failedResult("用户不存在");
@@ -31,14 +33,12 @@ public class UserService extends BaseService {
         if (!password.equals(authInfo.getPassword())) {
             return failedResult("密码错误");
         }
-
         if (authInfo.getUserType().equals(UserType.STUDENT)) {
+            //更新学生的最后次登陆时间
             userManager.updateStudentLastLoginTime(username);
         }
-
         LoginStatusBO statusBO = LoginStatusBO.fromAuthInfo(authInfo);
         loginStatusManager.setLoginStatus(session, statusBO);
-
         return result(statusBO);
     }
 

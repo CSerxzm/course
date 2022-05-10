@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Component
 public class UserManager extends BaseManager {
+
     private final AdminDAO adminDAO;
     private final TeacherDAO teacherDAO;
     private final StudentDAO studentDAO;
@@ -30,7 +31,6 @@ public class UserManager extends BaseManager {
         } else if (userType == UserType.ADMIN) {
             return AuthInfoBO.fromAdmin(adminDAO.getByUsername(username));
         }
-
         return null;
     }
 

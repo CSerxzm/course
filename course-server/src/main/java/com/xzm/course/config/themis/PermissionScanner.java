@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 
 @Component
 public class PermissionScanner {
+
     public Permission scan(Method method) {
         Admin annotation;
         if (getAnnotation(method, NoLimit.class) != null) {
@@ -26,7 +27,6 @@ public class PermissionScanner {
         } else if ((annotation = getAnnotation(method, Admin.class)) != null) {
             return new Permission(UserType.ADMIN, annotation.value());
         }
-
         return new Permission(false);
     }
 
@@ -35,7 +35,6 @@ public class PermissionScanner {
         if (annotation == null) {
             annotation = method.getDeclaringClass().getDeclaredAnnotation(annotationClass);
         }
-
         return annotation;
     }
 }

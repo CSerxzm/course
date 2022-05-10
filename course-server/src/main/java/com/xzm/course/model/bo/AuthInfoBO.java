@@ -8,11 +8,13 @@ import lombok.Data;
 
 @Data
 public class AuthInfoBO {
+
     private Integer id;
     private String username;
     private String password;
     private Integer userType;
     private Integer permission = 0;
+    private String token;
 
     public AuthInfoBO() {
     }
